@@ -108,10 +108,10 @@ export default function App() {
   return (
     <div className="mx-auto flex min-h-svh max-w-3xl flex-col gap-6 px-4 py-8 sm:px-6">
       <header className="space-y-1">
-        <h1 className="text-2xl font-semibold tracking-tight text-white">
+        <h1 className="text-2xl font-semibold tracking-tight text-zinc-900">
           Comments Viewer
         </h1>
-        <p className="text-sm text-zinc-400">
+        <p className="text-sm text-zinc-600">
           Paste a YouTube URL and stream public comments with the Data API.
         </p>
       </header>
@@ -127,13 +127,13 @@ export default function App() {
           onChange={(event) => setUrl(event.target.value)}
           placeholder="https://www.youtube.com/watch?v=sjr8L64qfvY"
           autoFocus
-          className="min-w-0 flex-1 rounded-lg border border-zinc-700 bg-zinc-950 px-3 py-2.5 text-sm text-zinc-100 outline-none placeholder:text-zinc-600 focus:border-rose-500"
+          className="min-w-0 flex-1 rounded-lg border border-zinc-300 bg-white px-3 py-2.5 text-sm text-zinc-900 outline-none placeholder:text-zinc-400 focus:border-rose-500"
         />
         <button
           type="submit"
           className={`rounded-lg px-4 py-2.5 text-sm font-medium ${
             loading
-              ? 'border border-zinc-600 text-zinc-100 hover:border-zinc-400'
+              ? 'border border-zinc-300 text-zinc-800 hover:border-zinc-500'
               : 'bg-rose-600 text-white hover:bg-rose-500'
           }`}
         >
@@ -144,18 +144,18 @@ export default function App() {
       {error && (
         <p
           role="alert"
-          className="rounded-lg border border-rose-900/80 bg-rose-950/40 px-3 py-2 text-sm text-rose-200"
+          className="rounded-lg border border-rose-200 bg-rose-50 px-3 py-2 text-sm text-rose-800"
         >
           {error}
         </p>
       )}
 
       {status === 'stopped' && (
-        <p className="text-sm text-amber-300">Loading stopped.</p>
+        <p className="text-sm text-amber-700">Loading stopped.</p>
       )}
 
       {video && (
-        <section className="flex gap-4 rounded-xl border border-zinc-800 bg-zinc-900/40 p-3">
+        <section className="flex gap-4 rounded-xl border border-zinc-200 bg-white p-3">
           {video.thumbnailUrl && (
             <img
               src={video.thumbnailUrl}
@@ -166,8 +166,8 @@ export default function App() {
             />
           )}
           <div className="min-w-0">
-            <h2 className="text-base font-medium text-white">{video.title}</h2>
-            <p className="mt-1 text-sm text-zinc-400">
+            <h2 className="text-base font-medium text-zinc-900">{video.title}</h2>
+            <p className="mt-1 text-sm text-zinc-600">
               {video.channelTitle}
               {video.publishedAt ? ` · ${formatDate(video.publishedAt)}` : ''}
             </p>
@@ -178,7 +178,7 @@ export default function App() {
               href={`https://www.youtube.com/watch?v=${video.id}`}
               target="_blank"
               rel="noreferrer"
-              className="mt-1 inline-block text-sm text-rose-400 hover:text-rose-300"
+              className="mt-1 inline-block text-sm text-rose-600 hover:text-rose-500"
             >
               Open on YouTube
             </a>
@@ -197,7 +197,7 @@ export default function App() {
       {(comments.length > 0 || status === 'complete') && (
         <section className="space-y-3">
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <h2 className="text-sm font-medium text-zinc-200">Comments</h2>
+            <h2 className="text-sm font-medium text-zinc-800">Comments</h2>
             <div
               className="flex items-center gap-1"
               role="group"
@@ -219,8 +219,8 @@ export default function App() {
                     onClick={() => setSort(value)}
                     className={`rounded-md px-2.5 py-1 text-sm font-medium ${
                       selected
-                        ? 'bg-zinc-100 text-zinc-900'
-                        : 'text-zinc-400 hover:bg-zinc-800 hover:text-zinc-100'
+                        ? 'bg-zinc-900 text-white'
+                        : 'text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900'
                     }`}
                   >
                     {label}

@@ -1,14 +1,14 @@
 @import 'tailwindcss';
 
 html {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
   margin: 0;
   min-height: 100svh;
-  background: #0f1115;
-  color: #e8eaed;
+  background: #f7f8fa;
+  color: #18181b;
   font-family:
     system-ui,
     'Segoe UI',

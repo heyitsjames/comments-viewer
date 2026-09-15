@@ -23,12 +23,12 @@ export function CommentItem({ comment, nested = false }: Props) {
       href={comment.authorChannelUrl}
       target="_blank"
       rel="noreferrer"
-      className="font-medium text-zinc-100 hover:underline"
+      className="font-medium text-zinc-900 hover:underline"
     >
       {comment.author}
     </a>
   ) : (
-    <span className="font-medium text-zinc-100">{comment.author}</span>
+    <span className="font-medium text-zinc-900">{comment.author}</span>
   )
 
   return (
@@ -40,7 +40,7 @@ export function CommentItem({ comment, nested = false }: Props) {
         aria-expanded={!collapsed}
         aria-label={collapsed ? 'Expand comment' : 'Collapse comment'}
         onClick={() => setCollapsed((value) => !value)}
-        className="mt-1 flex size-5 shrink-0 items-center justify-center rounded text-zinc-500 hover:bg-zinc-800 hover:text-zinc-200"
+        className="mt-1 flex size-5 shrink-0 items-center justify-center rounded text-zinc-400 hover:bg-zinc-100 hover:text-zinc-700"
       >
         <Chevron expanded={!collapsed} />
       </button>
@@ -52,11 +52,11 @@ export function CommentItem({ comment, nested = false }: Props) {
           height={nested ? 28 : 40}
           loading="lazy"
           referrerPolicy="no-referrer"
-          className={`shrink-0 rounded-full bg-zinc-800 ${nested ? 'size-7' : 'size-10'}`}
+          className={`shrink-0 rounded-full bg-zinc-200 ${nested ? 'size-7' : 'size-10'}`}
         />
       ) : (
         <div
-          className={`shrink-0 rounded-full bg-zinc-800 ${nested ? 'size-7' : 'size-10'}`}
+          className={`shrink-0 rounded-full bg-zinc-200 ${nested ? 'size-7' : 'size-10'}`}
         />
       )}
       <div className="min-w-0 flex-1">
@@ -80,7 +80,7 @@ export function CommentItem({ comment, nested = false }: Props) {
         </div>
         {!collapsed && (
           <>
-            <p className="mt-1 whitespace-pre-wrap break-words text-[15px] leading-relaxed text-zinc-200">
+            <p className="mt-1 whitespace-pre-wrap break-words text-[15px] leading-relaxed text-zinc-800">
               {comment.text}
             </p>
             <div className="mt-1.5 flex flex-wrap gap-3 text-xs text-zinc-500">
@@ -90,7 +90,7 @@ export function CommentItem({ comment, nested = false }: Props) {
                   type="button"
                   aria-expanded={!repliesCollapsed}
                   onClick={() => setRepliesCollapsed((value) => !value)}
-                  className="text-zinc-400 hover:text-zinc-100"
+                  className="text-zinc-600 hover:text-zinc-900"
                 >
                   {repliesCollapsed ? `Show ${replyLabel}` : `Hide ${replyLabel}`}
                   {showingNote}
@@ -104,7 +104,7 @@ export function CommentItem({ comment, nested = false }: Props) {
               )}
             </div>
             {hasReplies && !repliesCollapsed && (
-              <div className="mt-3 space-y-3 border-l border-zinc-800 pl-3">
+              <div className="mt-3 space-y-3 border-l border-zinc-200 pl-3">
                 {comment.replies.map((reply) => (
                   <CommentItem key={reply.id} comment={reply} nested />
                 ))}

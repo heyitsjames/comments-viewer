@@ -17,11 +17,11 @@ export function ProgressBar({
   return (
     <section className="space-y-2" aria-live="polite">
       <div className="flex items-baseline justify-between gap-3 text-sm">
-        <h2 className="font-medium text-zinc-200">Load status</h2>
-        <span className="tabular-nums text-zinc-400">{percent.toFixed(1)}%</span>
+        <h2 className="font-medium text-zinc-800">Load status</h2>
+        <span className="tabular-nums text-zinc-600">{percent.toFixed(1)}%</span>
       </div>
       <div
-        className="h-2 overflow-hidden rounded-full bg-zinc-800"
+        className="h-2 overflow-hidden rounded-full bg-zinc-300"
         role="progressbar"
         aria-valuemin={0}
         aria-valuemax={100}
@@ -33,7 +33,7 @@ export function ProgressBar({
           style={{ width: `${percent}%` }}
         />
       </div>
-      <p className="text-sm text-zinc-400">
+      <p className="text-sm text-zinc-600">
         Loaded {formatNumber(loaded)} of {formatNumber(reportedTotal)} reported
         comments. {formatNumber(threadCount)} top-level threads. YouTube’s total
         includes replies.

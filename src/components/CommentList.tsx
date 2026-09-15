@@ -13,7 +13,7 @@ export function CommentList({ comments }: Props) {
   }
 
   return (
-    <ul className="divide-y divide-zinc-800">
+    <ul className="divide-y divide-zinc-200">
       {comments.map((comment) => (
         <li key={comment.id} className="py-4 first:pt-0">
           <CommentItem comment={comment} />
